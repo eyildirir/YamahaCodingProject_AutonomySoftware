@@ -25,7 +25,11 @@ actual_velocity))"
 * @return current simulation time and velocity as an std::pair<double time, double velocity>
 */
     template <class dyn_t, class ctrl_t>
-    std::pair<double, double> step(dyn_t &&dyn, ctrl_t &&ctrl, const double desired_velocity)
+    // std::pair<double, double> step(dyn_t &&dyn, ctrl_t &&ctrl, const double desired_velocity)
+    /* The above was changed because it would make inputting a persistent object as an 
+    * input to "step()" impossible. May be a typo, changed below from "&&" to "&" instead
+    */
+    std::pair<double, double> step(dyn_t &dyn, ctrl_t &ctrl, const double desired_velocity)
     {
         m_time += m_timestep;
         m_velocity += m_timestep * dyn(m_velocity, ctrl(desired_velocity - m_velocity));

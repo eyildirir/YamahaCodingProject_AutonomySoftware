@@ -3,7 +3,14 @@
 This is a simple boat simulator with a custom PID controller implementation for reaching and holding a goal speed. It can accomodate for up to 6 engines on a boat. It utilizes a second degree backwards difference algorithm to implement a PID regulator for controlling the change in throttle, which ultimately acts as a PID controller for the speed of the boat itself.
 
 ## Compiling
-There is a simple Shell Script provided that, when run in the project root directory, compiles executables for the main simulator as well as a few unit tests for testing PID Controller functionality.
+The entire project, including the tests, can be built using CMake by running in command line:
+```
+mkdir build && cd build
+cmake ..
+make
+```
+
+There is also a simple Shell Script provided that, when run in the project root directory, compiles executables for the main simulator as well as a few unit tests for testing PID Controller functionality.
 
 The simulator and the test executables can also be manually compiled by running:
 ```
